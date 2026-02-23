@@ -43,6 +43,7 @@ npm run preview
 | `npm run test` | Vitest 监听模式 |
 | `npm run test:run` | Vitest 单次运行 |
 | `npm run test:coverage` | 覆盖率报告 |
+| `npm run deploy` | 构建并推送到 gh-pages |
 
 ## 环境变量
 

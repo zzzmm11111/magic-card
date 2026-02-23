@@ -24,4 +24,6 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
-})
+  // Vitest 与项目 Vite 类型版本不一致，避免 vue-tsc 报错
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+} as any)

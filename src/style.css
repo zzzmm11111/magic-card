@@ -3,12 +3,12 @@
 /* Tailwind 4 */
 @import "tailwindcss";
 
-/* 3. 主题扩展（可选，与 Naive 色板对齐） */
+/* 主题扩展（可选） */
 @theme {
   --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 
-/* 4. 全局基础样式 */
+/* 全局基础样式 */
 html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;

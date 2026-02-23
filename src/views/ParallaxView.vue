@@ -59,20 +59,17 @@ const cardStyle = computed<CSSProperties>(() => ({
       </h1>
     </header>
 
-    <!-- 数值展示（类似 VueUse 文档） -->
     <div class="px-4 py-2 text-sm text-slate-500 font-mono bg-white/80 rounded-lg mx-4 mb-4">
       <div>roll: {{ parallax.roll.toFixed(3) }}</div>
       <div>tilt: {{ parallax.tilt.toFixed(3) }}</div>
       <div>source: {{ parallax.source }}</div>
     </div>
 
-    <!-- 视差区域：绑定 ref 给 useParallax -->
     <div
       ref="container"
       class="flex-1 flex flex-col items-center justify-center px-4 py-8 touch-none select-none"
       style="min-height: 420px; perspective: 320px;"
     >
-      <!-- 多层背景圆形（不同层位移不同，形成景深） -->
       <div class="relative w-64 h-64">
         <div
           v-for="(style, i) in [layer0, layer1, layer2, layer3]"
@@ -88,7 +85,6 @@ const cardStyle = computed<CSSProperties>(() => ({
         />
       </div>
 
-      <!-- 中央卡片：随鼠标/陀螺仪 3D 倾斜 -->
       <div
         class="mt-8 relative z-10 flex items-center justify-center"
         :style="cardStyle"
