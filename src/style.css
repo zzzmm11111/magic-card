@@ -1,0 +1,28 @@
+/* Naive UI 2.x 无需单独引入 CSS，样式由库内部处理。Tailwind 在后，可覆盖 Naive 的样式。 */
+
+/* Tailwind 4 */
+@import "tailwindcss";
+
+/* 3. 主题扩展（可选，与 Naive 色板对齐） */
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif;
+}
+
+/* 4. 全局基础样式 */
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
