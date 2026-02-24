@@ -1,20 +1,43 @@
 <script setup lang="ts">
+import '@/styles/card/view.css'
+import { useParallax } from '@vueuse/core'
+import { computed, reactive } from 'vue'
+
+const container = ref<HTMLElement | null>(null)
+const parallax = reactive(useParallax(container))
+
+const parallaxVars = computed(() => ({
+  '--parallax-tilt': parallax.tilt,
+  '--parallax-roll': parallax.roll,
+}))
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col">
-    <header class="p-4 flex items-center gap-2 border-b border-slate-200">
-      <RouterLink v-slot="{ navigate }" to="/" custom>
-        <NButton quaternary size="small" @click="navigate">← 返回</NButton>
-      </RouterLink>
-      <h1 class="text-lg font-semibold text-slate-700">
-        卡片
-      </h1>
-    </header>
-    <main class="flex-1 p-4">
-      <div class="text-slate-500">
-        卡片 · 占位内容
+  <div
+    ref="container"
+    class="h-screen-dynamic min-h-0 w-full flex flex-col items-center justify-center p-4 touch-none select-none perspective-[400px] bg-gradient-to-b from-sky-50 to-slate-100"
+  >
+    <div
+      class="parallax-card w-64 rounded-xl overflow-hidden shadow-xl border-2 border-amber-200/80 bg-white"
+      :style="parallaxVars"
+    >
+      <!-- 卡图区 -->
+      <div class="aspect-[5/4] bg-gradient-to-b from-sky-100 to-white flex items-center justify-center border-b-2 border-amber-200/60">
+        <span class="text-6xl drop-shadow-md" aria-hidden="true">🐉</span>
       </div>
-    </main>
+      <!-- 卡名与信息 -->
+      <div class="p-3 bg-white">
+        <div class="text-center font-bold text-slate-800 text-lg tracking-wide">
+          青眼白龙
+        </div>
+        <div class="text-center text-xs text-slate-500 mt-0.5">
+          Blue-Eyes White Dragon
+        </div>
+        <div class="flex justify-center gap-4 mt-2 text-xs text-slate-600 font-medium">
+          <span>ATK 3000</span>
+          <span>DEF 2500</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>

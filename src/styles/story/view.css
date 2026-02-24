@@ -1,0 +1,22 @@
+/* 故事页：远郊方框与视差（方框、山、太阳） */
+
+@layer components {
+  .story-wrap {
+    perspective: 800px;
+  }
+
+  .parallax-story-frame {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * 12px)) translateY(calc(var(--parallax-roll, 0) * -12px));
+  }
+
+  .parallax-story-mountain {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * 24px)) translateY(calc(var(--parallax-roll, 0) * -24px));
+  }
+
+  .parallax-story-sun {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * 36px)) translateY(calc(var(--parallax-roll, 0) * -36px));
+  }
+}

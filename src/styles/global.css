@@ -1,0 +1,26 @@
+/* 全局基础样式 + 多页共用的视口/安全区 */
+
+@layer components {
+  .h-screen-dynamic { height: 100dvh; }
+  .min-h-screen-dynamic { min-height: 100dvh; }
+  .bottom-safe { bottom: max(1rem, env(safe-area-inset-bottom)); }
+  .pb-safe-bottom { padding-bottom: max(4rem, calc(1rem + env(safe-area-inset-bottom))); }
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+  min-height: 100vh;
+  min-height: 100dvh;
+}

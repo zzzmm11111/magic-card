@@ -1,0 +1,8 @@
+/* 卡片页：视差卡片 */
+
+@layer components {
+  .parallax-card {
+    transition: transform 0.2s ease-out;
+    transform: rotateX(calc(var(--parallax-roll, 0) * 12deg)) rotateY(calc(var(--parallax-tilt, 0) * 12deg));
+  }
+}

@@ -1,0 +1,8 @@
+/* 首页轮播视差图标 */
+
+@layer components {
+  .parallax-box {
+    transition: transform 0.15s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * 20px)) translateY(calc(var(--parallax-roll, 0) * 20px)) rotateX(calc(var(--parallax-roll, 0) * 14deg)) rotateY(calc(var(--parallax-tilt, 0) * 14deg));
+  }
+}
