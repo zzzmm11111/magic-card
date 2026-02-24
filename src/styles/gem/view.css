@@ -1,38 +1,84 @@
-/* 宝石页：视差钻石与切面反光 */
+/* 宝石页：纯 SVG 刻面，高光与刻面一一对应 */
 
 @layer components {
   .parallax-gem {
     transition: transform 0.2s ease-out;
-    transform: rotateX(calc(var(--parallax-roll, 0) * 18deg)) rotateY(calc(var(--parallax-tilt, 0) * 18deg));
+    /* 左右 tilt 32deg，上下 roll 加大幅度 */
+    transform: rotateX(calc(var(--parallax-roll, 0) * 50deg)) rotateY(calc(var(--parallax-tilt, 0) * 32deg));
   }
 
-  .diamond {
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    /* 钻石底色 + 随倾斜移动的高光，模拟不同切面反光 */
-    background:
-      radial-gradient(
-        ellipse 80% 50% at calc(50% + var(--parallax-tilt, 0) * 35%) calc(50% - var(--parallax-roll, 0) * 35%),
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(200, 230, 255, 0.5) 25%,
-        transparent 60%
-      ),
-      radial-gradient(
-        ellipse 60% 80% at calc(50% - var(--parallax-tilt, 0) * 30%) calc(50% + var(--parallax-roll, 0) * 30%),
-        rgba(255, 255, 255, 0.7) 0%,
-        rgba(220, 240, 255, 0.35) 40%,
-        transparent 70%
-      ),
-      linear-gradient(
-        calc(135deg + var(--parallax-tilt, 0) * 60deg + var(--parallax-roll, 0) * 40deg),
-        rgba(255, 255, 255, 0.9) 0%,
-        rgba(255, 255, 255, 0.1) 25%,
-        transparent 50%
-      ),
-      linear-gradient(
-        calc(320deg - var(--parallax-roll, 0) * 50deg),
-        rgba(240, 250, 255, 0.6) 0%,
-        transparent 45%
-      ),
-      linear-gradient(180deg, #e0f4ff 0%, #b8e0f5 30%, #7ec8e8 60%, #4aa8c9 100%);
+  .gem-brilliant {
+    position: relative;
+    width: 11rem;   /* w-44 */
+    height: 14rem;  /* h-56 */
+    flex-shrink: 0;
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+  }
+
+  .gem-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .gem-svg .facet {
+    transition: filter 0.15s ease-out;
+  }
+
+  /* 刻面填充组：可做轻微闪烁 */
+  .facets-fill {
+    animation: facet-shimmer 5s ease-in-out infinite;
+  }
+
+  @keyframes facet-shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.98; }
+  }
+
+  /* 随机位置闪烁的小星星，亮度不随角度变化 */
+  .gem-svg .sparkle {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .gem-svg .sparkle.sparkle--visible {
+    animation: sparkle-flash 0.65s ease-out forwards;
+  }
+
+  @keyframes sparkle-flash {
+    0% { opacity: 0; }
+    40% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  /* 宝石切换按钮：用 SVG 图当按钮 */
+  .gem-switch-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0;
+    border-radius: 0.75rem;
+    border: 2px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+  .gem-switch-btn:hover {
+    background: #f1f5f9;
+    border-color: rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+  }
+  .gem-switch-btn--active {
+    background: #e0e7ff;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+  }
+  .gem-switch-btn__img {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    display: block;
   }
 }

@@ -1,3 +1,4 @@
+/// <reference types="@webgpu/types" />
 import { ref, watch, onBeforeUnmount } from 'vue'
 
 const WGSL = /* wgsl */ `
@@ -204,7 +205,8 @@ export function useWebGpuHolo(
         startTime = performance.now()
         resize()
         resizeObserver = new ResizeObserver(() => resize())
-        resizeObserver.observe(canvas)
+        const el = canvasRef.value
+        if (el) resizeObserver.observe(el)
         render()
       }
     },

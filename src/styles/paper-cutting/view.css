@@ -1,18 +1,74 @@
-/* 剪纸画页同心圆视差层 */
+/* 剪纸画页：MOM SHADOWBOX 多层 SVG，每层不同视差 */
 
 @layer components {
-  .parallax-layer {
-    position: absolute;
-    height: 100%;
+  .shadowbox-wrap {
     width: 100%;
+    max-width: min(90vw, 28rem);
+    aspect-ratio: 1;
+    max-height: 70vh;
+    background: #fff;
+    border-radius: 0.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease-out;
-    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset, 0) * 1px)) scale(1.2);
   }
-  .parallax-layer-0 { width: 100%; height: 100%; left: 0; top: 0; }
-  .parallax-layer-1 { width: 80%; height: 80%; left: 10%; top: 10%; }
-  .parallax-layer-2 { width: 60%; height: 60%; left: 20%; top: 20%; }
-  .parallax-layer-3 { width: 40%; height: 40%; left: 30%; top: 30%; }
+
+  .shadowbox-clip {
+    width: 100%;
+    height: 100%;
+  }
+
+  .shadowbox-wrap svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow: hidden;
+  }
+
+  .shadowbox-wrap #LAYER_11 {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset-0, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset-0, 0) * 1px));
+  }
+
+  .shadowbox-wrap #LAYER_10 {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset-1, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset-1, 0) * 1px));
+  }
+  .shadowbox-wrap #LAYER_09 {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset-2, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset-2, 0) * 1px));
+  }
+  .shadowbox-wrap #LAYER_08 {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset-3, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset-3, 0) * 1px));
+  }
+  .shadowbox-wrap #LAYER_07 {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset-4, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset-4, 0) * 1px));
+  }
+  .shadowbox-wrap #LAYER_06 {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset-5, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset-5, 0) * 1px));
+  }
+  .shadowbox-wrap #LAYER_05 {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset-6, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset-6, 0) * 1px));
+  }
+  .shadowbox-wrap #LAYER_04 {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset-7, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset-7, 0) * 1px));
+  }
+  .shadowbox-wrap #LAYER_03 {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset-8, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset-8, 0) * 1px));
+  }
+  .shadowbox-wrap #LAYER_02 {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset-9, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset-9, 0) * 1px));
+  }
+  .shadowbox-wrap #LAYER_01 {
+    transition: transform 0.2s ease-out;
+    transform: translateX(calc(var(--parallax-tilt, 0) * var(--parallax-offset-10, 0) * 1px)) translateY(calc(-1 * var(--parallax-roll, 0) * var(--parallax-offset-10, 0) * 1px));
+  }
 }
