@@ -51,11 +51,11 @@ const cardStyle = computed<CSSProperties>(() => ({
 <template>
   <div class="min-h-screen flex flex-col bg-linear-to-b from-slate-100 to-slate-200">
     <header class="p-4 flex items-center gap-2">
-      <NButton quaternary size="small" tag="a" href="#/">
-        ← 返回
-      </NButton>
+      <RouterLink v-slot="{ navigate }" to="/" custom>
+        <NButton quaternary size="small" @click="navigate">← 返回</NButton>
+      </RouterLink>
       <h1 class="text-lg font-semibold text-slate-700">
-        useParallax
+        剪纸画
       </h1>
     </header>
 
@@ -94,7 +94,7 @@ const cardStyle = computed<CSSProperties>(() => ({
             🎴
           </div>
           <div class="font-medium">
-            Parallax Card
+            剪纸画
           </div>
           <div class="text-xs mt-1 opacity-70">
             移动鼠标或倾斜设备
@@ -104,7 +104,7 @@ const cardStyle = computed<CSSProperties>(() => ({
     </div>
 
     <p class="text-center text-xs text-slate-400 pb-6">
-      基于 VueUse useParallax · 桌面端跟随鼠标，移动端使用设备方向
+      基于 VueUse useParallax
     </p>
   </div>
 </template>

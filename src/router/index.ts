@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
@@ -9,15 +9,39 @@ const routes: RouteRecordRaw[] = [
     meta: { title: '首页' },
   },
   {
-    path: '/parallax',
-    name: 'Parallax',
-    component: () => import('@/views/ParallaxView.vue'),
-    meta: { title: 'Parallax' },
+    path: '/card',
+    name: 'Card',
+    component: () => import('@/views/CardView.vue'),
+    meta: { title: '卡片' },
+  },
+  {
+    path: '/gem',
+    name: 'Gem',
+    component: () => import('@/views/GemView.vue'),
+    meta: { title: '宝石' },
+  },
+  {
+    path: '/paper-cutting',
+    name: 'PaperCutting',
+    component: () => import('@/views/PaperCuttingView.vue'),
+    meta: { title: '剪纸画' },
+  },
+  {
+    path: '/story',
+    name: 'Story',
+    component: () => import('@/views/StoryView.vue'),
+    meta: { title: '故事' },
+  },
+  {
+    path: '/newspaper',
+    name: 'Newspaper',
+    component: () => import('@/views/NewspaperView.vue'),
+    meta: { title: '哈利波特报纸' },
   },
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
 

@@ -1,4 +1,5 @@
 import { resolve } from 'node:path'
+import { copyFileSync } from 'node:fs'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import tailwindcss from '@tailwindcss/vite'
@@ -10,6 +11,13 @@ export default defineConfig({
   base: '/magic-card/',
   plugins: [
     vue(),
+    // GitHub Pages：用 404.html 兜底，刷新子路径时仍加载 SPA
+    {
+      name: 'copy-404',
+      closeBundle() {
+        copyFileSync(resolve(__dirname, 'dist/index.html'), resolve(__dirname, 'dist/404.html'))
+      },
+    },
     tailwindcss(),
     AutoImport({
       dts: 'src/auto-imports.d.ts',
