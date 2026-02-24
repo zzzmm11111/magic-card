@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import '@/styles/story/view.css'
 import { animate } from 'animejs'
-import { useParallax } from '@vueuse/core'
+import { useParallaxSettled } from '@/composables/useParallaxSettled'
 import { computed, reactive, onMounted, onBeforeUnmount } from 'vue'
 
 const container = ref<HTMLElement | null>(null)
-const parallax = reactive(useParallax(container))
+const parallax = reactive(useParallaxSettled(container))
 
 const parallaxVars = computed(() => ({
   '--parallax-tilt': parallax.tilt,
@@ -36,7 +36,7 @@ onBeforeUnmount(() => {
     class="story-wrap h-screen-dynamic min-h-0 w-full flex flex-col items-center justify-center p-4 touch-none bg-linear-to-b from-amber-50 to-amber-100"
   >
     <div
-      class="parallax-story-frame w-72 aspect-4/3 rounded-xl border-2 border-amber-800/40 bg-amber-50/90 shadow-lg flex flex-col items-center justify-end pb-6 pt-4"
+      class="parallax-story-frame w-96 aspect-4/3 rounded-xl border-2 border-amber-800/40 bg-amber-50/90 shadow-lg flex flex-col items-center justify-end pb-6 pt-4"
       :style="parallaxVars"
     >
       <div
@@ -51,7 +51,7 @@ onBeforeUnmount(() => {
         >☀️</span>
       </div>
       <div
-        class="parallax-story-mountain inline-block text-8xl drop-shadow-sm select-none"
+        class="parallax-story-mountain inline-block text-9xl drop-shadow-sm select-none"
         :style="parallaxVars"
         aria-hidden="true"
       >

@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import '@/styles/home/view.css'
-import { useParallax } from '@vueuse/core'
-import { reactive, computed } from 'vue'
+import { useParallaxSettled } from '@/composables/useParallaxSettled'
+import { useRoute, useRouter } from 'vue-router'
+import { reactive, computed, watch } from 'vue'
 
+const route = useRoute()
+const router = useRouter()
 const container = ref<HTMLElement | null>(null)
-const parallax = reactive(useParallax(container))
+const parallax = reactive(useParallaxSettled(container))
 
 const parallaxVars = computed(() => ({
   '--parallax-tilt': parallax.tilt,
@@ -18,6 +21,32 @@ const slides = [
   { key: 'story', title: '故事', path: '/story', bg: 'bg-amber-50', textColor: 'text-amber-900', icon: '📖' },
   { key: 'newspaper', title: '哈利波特报纸', path: '/newspaper', bg: 'bg-stone-100', textColor: 'text-stone-700', icon: '📰' },
 ]
+
+const slideKeyToIndex = (key: string) => {
+  const i = slides.findIndex((s) => s.key === key)
+  return i >= 0 ? i : 0
+}
+
+const querySlide = computed(() => {
+  const s = route.query.slide
+  const raw = Array.isArray(s) ? s[0] : s
+  return typeof raw === 'string' ? raw : ''
+})
+const currentIndex = ref(slideKeyToIndex(querySlide.value))
+
+watch(
+  querySlide,
+  (slide) => {
+    const idx = slideKeyToIndex(slide ?? '')
+    if (idx !== currentIndex.value) currentIndex.value = idx
+  },
+)
+
+function onSlideChange(index: number) {
+  currentIndex.value = index
+  const key = slides[index]?.key ?? slides[0].key
+  router.replace({ path: route.path, query: { ...route.query, slide: key } })
+}
 </script>
 
 <template>
@@ -26,18 +55,20 @@ const slides = [
     class="home-carousel h-screen-dynamic w-full overflow-hidden touch-none"
   >
     <NCarousel
+      :current-index="currentIndex"
       show-dots
       draggable
       class="h-full"
+      @update:current-index="onSlideChange"
     >
-      <template #dots="{ total, currentIndex, to }">
+      <template #dots="{ total, currentIndex: idx, to }">
         <div class="absolute bottom-safe left-0 right-0 flex justify-center gap-2">
           <button
             v-for="i in total"
             :key="i"
             type="button"
             class="h-2 rounded-full border-2 border-slate-500/80 bg-slate-400/50 transition-all duration-300 ease-out"
-            :class="i - 1 === currentIndex ? 'w-8 bg-slate-600' : 'w-4'"
+            :class="i - 1 === idx ? 'w-8 bg-slate-600' : 'w-4'"
             :aria-label="`第 ${i} 页`"
             @click.stop="to(i - 1)"
           />

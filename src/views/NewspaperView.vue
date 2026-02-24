@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import '@/styles/newspaper/view.css'
 import { animate } from 'animejs'
-import { useParallax } from '@vueuse/core'
+import { useParallaxSettled } from '@/composables/useParallaxSettled'
 import { computed, reactive, onMounted, onBeforeUnmount } from 'vue'
 
 const container = ref<HTMLElement | null>(null)
-const parallax = reactive(useParallax(container))
+const parallax = reactive(useParallaxSettled(container))
 
 const parallaxVars = computed(() => ({
   '--parallax-tilt': parallax.tilt,

@@ -75,6 +75,7 @@ declare global {
   const useMessage: typeof import('naive-ui')['useMessage']
   const useModel: typeof import('vue')['useModel']
   const useNotification: typeof import('naive-ui')['useNotification']
+  const useParallaxSettled: typeof import('./composables/useParallaxSettled')['useParallaxSettled']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
@@ -165,6 +166,7 @@ declare module 'vue' {
     readonly useMessage: UnwrapRef<typeof import('naive-ui')['useMessage']>
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
     readonly useNotification: UnwrapRef<typeof import('naive-ui')['useNotification']>
+    readonly useParallaxSettled: UnwrapRef<typeof import('./composables/useParallaxSettled')['useParallaxSettled']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>

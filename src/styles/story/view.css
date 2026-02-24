@@ -12,7 +12,7 @@
 
   .parallax-story-mountain {
     transition: transform 0.2s ease-out;
-    transform: translateX(calc(var(--parallax-tilt, 0) * 24px)) translateY(calc(var(--parallax-roll, 0) * -24px));
+    transform: translateX(calc(var(--parallax-tilt, 0) * 10px)) translateY(calc(var(--parallax-roll, 0) * -10px));
   }
 
   .parallax-story-sun {
