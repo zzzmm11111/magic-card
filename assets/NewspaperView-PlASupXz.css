@@ -1,0 +1,1 @@
+@layer components{.newspaper-wrap{perspective:1200px}.parallax-newspaper{transition:transform .15s ease-out;transform:rotateX(calc(var(--parallax-roll, 0) * 14deg)) rotateY(calc(var(--parallax-tilt, 0) * 14deg));filter:grayscale(1)}.newspaper-sky{background:linear-gradient(to bottom,#2d2d2d,#5a5a5a 25%,#9a9a9a 55%,#c9c9c9 80%,#e5e5e5)}}
