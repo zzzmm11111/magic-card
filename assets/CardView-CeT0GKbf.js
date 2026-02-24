@@ -1,4 +1,4 @@
-import{u as A}from"./useParallaxSettled-B3NiroU1.js";import{w as k,a as H,j as w,d as W,I as F,J as M,U,V as _,M as C,Y as V,H as z,c as R,Q as S}from"./index-B-873Mkl.js";const O=`
+import{u as A}from"./useParallaxSettled-pbzEBIG4.js";import{w as k,a as H,j as w,d as W,I as F,J as M,U,V as _,M as C,Y as V,H as z,c as R,Q as S}from"./index-DYStAT_o.js";const O=`
 struct Uniforms {
   time: f32,
   tilt: f32,
