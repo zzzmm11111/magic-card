@@ -87,11 +87,11 @@ function onSlideChange(index: number) {
           >
             <div class="h-1/3 min-h-[36vh] flex items-center justify-center shrink-0 pt-8">
               <div
-                class="parallax-box inline-flex items-center justify-center rounded-3xl border-2 border-white/40 bg-white/30 shadow-lg backdrop-blur-sm p-6"
+                class="parallax-box inline-flex items-center justify-center rounded-3xl border-2 border-white/40 bg-white/30 shadow-lg backdrop-blur-sm p-6 min-h-56"
                 :style="parallaxVars"
               >
                 <span
-                  class="inline-block select-none text-[11rem] leading-none"
+                  class="inline-flex items-center justify-center h-44 w-44 select-none text-[11rem] leading-none contain-[layout]"
                   aria-hidden="true"
                 >{{ slide.icon }}</span>
               </div>
